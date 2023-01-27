@@ -72,7 +72,7 @@ const RegisterScreen = () => {
         </Form.Group>
 
         <Form.Group className='mt-2' controlId='password'>
-          <Form.Label>Password Address</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'
