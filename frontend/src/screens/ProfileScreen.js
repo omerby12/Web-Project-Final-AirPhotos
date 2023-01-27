@@ -7,7 +7,10 @@ import Message from '../components/UI/Message';
 import Loader from '../components/UI/Loader';
 
 import { getUserDetails } from '../features/user/userDetailsSlice';
-import { updateUserProfile } from '../features/user/userUpdateProfileSlice';
+import {
+  userUpdateProfileActions,
+  updateUserProfile,
+} from '../features/user/userUpdateProfileSlice';
 
 const ProfileScreen = () => {
   const navigate = useNavigate();
@@ -40,6 +43,10 @@ const ProfileScreen = () => {
       }
     }
   }, [dispatch, navigate, userInfo, user]);
+
+  useEffect(() => {
+    return () => dispatch(userUpdateProfileActions.clearUpdateUserData());
+  }, [dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -79,7 +86,7 @@ const ProfileScreen = () => {
         </Form.Group>
 
         <Form.Group className='mt-2' controlId='password'>
-          <Form.Label>Password Address</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'

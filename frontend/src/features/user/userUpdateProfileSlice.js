@@ -10,7 +10,7 @@ const initialUserUpdateProfileState = {
 
 export const updateUserProfile = createAsyncThunk(
   'user/userProfile',
-  async ({ user }, { getState, rejectWithValue }) => {
+  async ({ id, name, email, password }, { getState, rejectWithValue }) => {
     try {
       const userInfo = getState().user.userInfo;
       const config = {
@@ -19,7 +19,11 @@ export const updateUserProfile = createAsyncThunk(
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      const { data } = await axios.put(`/api/users/profile`, user, config);
+      const { data } = await axios.put(
+        `/api/users/profile`,
+        { id, name, email, password },
+        config
+      );
       return data;
     } catch (error) {
       if (error.response && error.response.data.message) {
@@ -34,7 +38,14 @@ export const updateUserProfile = createAsyncThunk(
 const userUpdateProfileSlice = createSlice({
   name: 'userUpdateProfile',
   initialState: initialUserUpdateProfileState,
-  reducers: {},
+  reducers: {
+    clearUpdateUserData(state) {
+      state.loading = false;
+      state.userInfo = null;
+      state.error = null;
+      state.success = null;
+    },
+  },
   extraReducers: {
     // updateUserProfile
     [updateUserProfile.pending]: (state) => {
@@ -58,5 +69,5 @@ const userUpdateProfileSlice = createSlice({
   },
 });
 
-export const userUpdateProfileSliceActions = userUpdateProfileSlice.actions;
+export const userUpdateProfileActions = userUpdateProfileSlice.actions;
 export default userUpdateProfileSlice.reducer;
