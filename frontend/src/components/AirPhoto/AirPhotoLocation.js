@@ -20,9 +20,6 @@ const AirPhotoLocation = ({ airPhoto }) => {
     lng: airPhoto.location.coordinates[0],
   };
 
-  const onLoadSearchBox = (ref) => (this.searchBox = ref);
-  const onPlacesChanged = () => console.log(this.searchBox.getPlaces());
-
   const onLoad = (marker) => {
     console.log('marker: ', marker);
   };
