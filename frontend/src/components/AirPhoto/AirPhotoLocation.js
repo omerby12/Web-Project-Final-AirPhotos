@@ -29,7 +29,7 @@ const AirPhotoLocation = ({ airPhoto }) => {
         <GoogleMap
           id='marker-example'
           mapContainerStyle={mapContainerStyle}
-          zoom={10}
+          zoom={13}
           center={center}
         >
           <Marker onLoad={onLoad} position={position} />
