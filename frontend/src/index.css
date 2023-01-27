@@ -1,0 +1,56 @@
+main {
+    min-height: 80vh;
+    background-color: #476a8e;
+}
+
+h1 {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    font-weight: 400;
+    color: #fff;
+}
+
+h2 {
+    font-size: 1.4rem;
+    padding: 0.5rem 0;
+    color: #fff;
+}
+
+h3 {
+    padding: 1rem 0;
+    color: #fff;
+}
+
+label,
+a,
+span {
+    font-weight: 400;
+    color: #fff;
+}
+
+
+.form-control:focus,
+.form-control {
+    color: black;
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+}
+
+.form-control::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1;
+    /* Firefox */
+}
+
+.form-control:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: black;
+}
+
+.form-control::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: black;
+}
